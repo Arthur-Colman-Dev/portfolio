@@ -66,20 +66,24 @@ const Deck = () => {
     to: xFrom(i),
   }))
 
-  const bind = useGesture({
-    onDrag: (state) => onDrag(state, gone, api),
-    onHover: ({ args: [index], active }) => {
-      api.start(i => {
-        if (index !== i) return
-    
-        return {
-          scale: active ? 1.2 : 1,
-          delay: undefined,
-        }
-      })
+  const bind = useGesture(
+    {
+      onDrag: (state) => onDrag(state, gone, api),
+      onHover: ({ args: [index], active }) => {
+        api.start(i => {
+          if (index !== i) return
+      
+          return {
+            scale: active ? 1.2 : 1,
+            delay: undefined,
+          }
+        })
+      },
     },
-    config: { axis: 'x' },
-  })
+    { drag: {
+      axis: 'x',
+    }}
+  )
 
   return (
     <div>

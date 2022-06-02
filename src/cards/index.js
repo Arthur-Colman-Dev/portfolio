@@ -1,0 +1,9 @@
+export { default as HomeCard } from './home.jsx';
+export { default as LawgileHome } from './lawgile/lawgileHome.jsx';
+export { default as LawgileTech } from './lawgile/lawgileTech.jsx';
+export { default as LinxHome } from './linx/linxHome.jsx';
+export { default as LinxTech } from './linx/linxTech.jsx';
+export { default as EdukanHome } from './edukan/edukanHome.jsx';
+export { default as EdukanTech } from './edukan/edukanTech.jsx';
+export { default as WeatherHome } from './weather/weatherHome.jsx';
+export { default as WeatherTech } from './weather/weatherTech.jsx';

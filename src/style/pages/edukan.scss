@@ -1,0 +1,32 @@
+.edukan {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  h2 {
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+// .edukan__img {
+//   transform: scale(0.5) translateY(-50%);
+// }
+
+.edukan__content {
+  // margin-top: -240px;
+  width: 100%;
+}
+
+.edukan__landing {
+  width: 100%;
+  text-align: left;
+}
+
+@media screen and (max-width: 900px) {
+  .edukan__landing {
+    padding-bottom: 1rem;
+  }
+}

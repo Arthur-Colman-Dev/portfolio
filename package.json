@@ -1,0 +1,41 @@
+{
+  "name": "arthur-colman",
+  "version": "1.0.0",
+  "description": "Arthur Colman Resume",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Arthur",
+    "Colman",
+    "Resume"
+  ],
+  "author": "Arthur Colman",
+  "license": "ISC",
+  "dependencies": {
+    "@use-gesture/react": "^10.2.15",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.4.0",
+    "react-spring": "^9.4.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.1"
+  }
+}

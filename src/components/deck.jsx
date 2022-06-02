@@ -77,7 +77,8 @@ const Deck = () => {
           delay: undefined,
         }
       })
-    }
+    },
+    config: { axis: 'x' },
   })
 
   return (
@@ -86,7 +87,7 @@ const Deck = () => {
       <img className='right-arrow' src={arrow} />
       {springs.map(({ x, y, rot, scale }, i) => (
         <animated.div className="deck" key={i} style={{ transform: to([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
-          <animated.div className="card" {...bind(i)} style={{ transform: to([rot, scale], transition), touchAction: 'none' }}>{cards[i]}</animated.div>
+          <animated.div className="card" {...bind(i)} style={{ transform: to([rot, scale], transition), touchAction: 'pan-y' }}>{cards[i]}</animated.div>
         </animated.div>
       ))}
     </div>

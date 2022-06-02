@@ -15,7 +15,7 @@
   // background-position: center center;
   width: 50vw;
   max-width: 640px;
-  height: 85vh;
+  height: 90vh;
   max-height: 570px;
   will-change: transform;
   border-radius: 10px;
@@ -30,6 +30,5 @@
 @media screen and (max-width: 900px) {
   .card {
     width: 70vw;
-    height: 90vh;
   }
 }

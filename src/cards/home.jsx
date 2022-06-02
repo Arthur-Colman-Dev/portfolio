@@ -16,7 +16,7 @@ const HomePage = (props) => {
         <span className='home-card__subtitle__divider'/>
       </div>
       <p>I'm an experienced software engineer, who have strong experience with {outlineText('React')}, {outlineText('Redux')}, {outlineText('NodeJS')}, {outlineText('PostgreSQL')}, {outlineText('GraphQL')}, {outlineText("REST API's")}, {outlineText('AWS')} ({outlineText('Lambda')}, {outlineText('Step Functions')}, {outlineText('DynamoDB')}, {outlineText('Cognito')}, {outlineText('SES')}, {outlineText('Cloudfront')}, {outlineText('Cloudformation')}, {outlineText('S3')}). I'm also used to build my code using {outlineText('IaC')} (Infrastructure as Code) and have experience to work with {outlineText('DevOps')}, {outlineText('CICD')} and {outlineText('Tests Development')}.</p>
-      <p>My goal is to grow my tech skills as much as possible while making people lifes better.</p>
+      <p className='home-card__sentence'>My goal is to grow my tech skills as much as possible while making people lifes better.</p>
       <div className='social'>
         <a href='https://github.com/Arthur-Colman-Dev'><img src={github} /></a>
         <a href='https://www.linkedin.com/in/arthur-colman/'><img src={linkedin} /></a>

@@ -15,6 +15,8 @@ import {
 } from '../cards';
 
 // import arrow from '../assets/arrow.png';
+import swipe from '../assets/swipe.png';
+import classNames from 'classnames';
 
 const cards = [
   (<WeatherTech />),
@@ -28,11 +30,12 @@ const cards = [
   (<HomeCard />),
 ]
 
-const xFrom = (i) => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
+const toHelper = (i) => ({ x: 0, y: i * -4, scale: 1, rot: -10 + Math.random() * 20, delay: i * 100 })
 const transition = (rot, scale) => `perspective(1500px) rotateX(30deg) rotateY(${rot / 10}deg) rotateZ(${rot}deg) scale(${scale})`
 
-const onDrag = ({ args: [index], active, movement: [mx], direction: [xDir], velocity: [vx] }, gone, api) => {
-  const trigger = vx > 0.2
+const onDrag = ({ args: [index], active, movement: [mx], direction: [xDir], velocity: [vx] }, gone, api, setHasDragOccured) => {
+  if (index === cards.length - 1) setHasDragOccured(true);
+  const trigger = vx > 0.1
 
   if (!active && trigger) gone.add(index)
 
@@ -54,21 +57,22 @@ const onDrag = ({ args: [index], active, movement: [mx], direction: [xDir], velo
 
   if (!active && gone.size === cards.length) setTimeout(() => {
     gone.clear();
-    api.start(i => xFrom(i))
+    api.start(i => toHelper(i))
   }, 600)
 }
 
 const Deck = () => {
   const [gone] = useState(() => new Set())
+  const [hasDragOccured, setHasDragOccured] = useState(false);
 
   const [springs, api] = useSprings(cards.length, i => ({
     from: { x: 0, rot: 0, scale: 1.5, y: -1000},
-    to: xFrom(i),
+    to: toHelper(i),
   }))
 
   const bind = useGesture(
     {
-      onDrag: (state) => onDrag(state, gone, api),
+      onDrag: (state) => onDrag(state, gone, api, setHasDragOccured),
       onHover: ({ args: [index], active }) => {
         api.start(i => {
           if (index !== i) return
@@ -86,15 +90,22 @@ const Deck = () => {
   )
 
   return (
-    // <div>
-      /* <img className='left-arrow' src={arrow} /> */
-      /* <img className='right-arrow' src={arrow} /> */
-      springs.map(({ x, y, rot, scale }, i) => (
+    <div>
+      {/* <img className='left-arrow' src={arrow} /> */}
+      {/* <img className='right-arrow' src={arrow} /> */}
+      <div className={classNames(
+        'swipe',
+        {'swipe-fade': hasDragOccured},
+      )}>
+        <img className='swipe__img' src={swipe} />
+        <span className='swipe__text'>Swipe it!</span>
+      </div>
+      {springs.map(({ x, y, rot, scale }, i) => (
         <animated.div className="deck" key={i} style={{ transform: to([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
           <animated.div className="card" {...bind(i)} style={{ transform: to([rot, scale], transition), touchAction: 'pan-y' }}>{cards[i]}</animated.div>
         </animated.div>
-      ))
-    // </div>
+      ))}
+    </div>
   )
 }
 

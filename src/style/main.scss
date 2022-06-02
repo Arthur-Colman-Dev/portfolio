@@ -70,6 +70,38 @@ body {
   // }
 }
 
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.swipe {
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation-name: fadeIn;
+  animation-duration: 5s;
+}
+
+.swipe-fade {
+  animation-name: fadeOut;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+.swipe__text {
+  color: $white;
+  margin-top: 0.5rem;
+}
+
 @import "./components/deck.scss";
 
 @import "./pages/home.scss";

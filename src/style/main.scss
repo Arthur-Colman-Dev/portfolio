@@ -29,19 +29,19 @@ body {
   cursor: url('../assets/cursor.png') 39 39, auto;
 }
 
-.left-arrow {
-  position: absolute;
-  top: 50%;
-  right: 90%;
-  transform: translate(100%, -50%) rotate(180deg);
-}
+// .left-arrow {
+//   position: absolute;
+//   top: 50%;
+//   right: 90%;
+//   transform: translate(100%, -50%) rotate(180deg);
+// }
 
-.right-arrow {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translate(0%, -50%);
-}
+// .right-arrow {
+//   position: absolute;
+//   top: 50%;
+//   right: 10%;
+//   transform: translate(0%, -50%);
+// }
 
 .technologies {
   display: grid;
@@ -65,9 +65,9 @@ body {
     }
   }
 
-  .right-arrow, .left-arrow {
-    display: none;
-  }
+  // .right-arrow, .left-arrow {
+  //   display: none;
+  // }
 }
 
 @import "./components/deck.scss";
